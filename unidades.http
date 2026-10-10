@@ -1,0 +1,19 @@
+@baseUrl = http://localhost:8080/api/v1/unidades
+
+### Cadastrar
+POST {{baseUrl}}
+Content-Type: application/json
+
+{"nome":"Blumenau","sigla":"BNU"}
+
+### Listar
+GET {{baseUrl}}?nome=blu&page=0&size=20&sort=nome,asc
+
+### Buscar
+GET {{baseUrl}}/1
+
+### Atualizar nome
+PUT {{baseUrl}}/1
+Content-Type: application/json
+
+{"nome":"Blumenau Centro"}
