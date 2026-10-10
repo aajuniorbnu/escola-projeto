@@ -1,0 +1,26 @@
+@baseUrl = http://localhost:8080/api/v1/professores
+@id = 1
+
+### Cadastrar professor (status inicial ATIVO)
+POST {{baseUrl}}
+Content-Type: application/json
+
+{"nome": "Maria Silva"}
+
+### Listar com filtros e paginação
+GET {{baseUrl}}?nome=Maria&status=ATIVO&page=0&size=20&sort=nome,asc
+
+### Consultar por ID
+GET {{baseUrl}}/{{id}}
+
+### Atualizar nome
+PUT {{baseUrl}}/{{id}}
+Content-Type: application/json
+
+{"nome": "Maria Souza"}
+
+### Inativar
+PATCH {{baseUrl}}/{{id}}/inativar
+
+### Reativar
+PATCH {{baseUrl}}/{{id}}/reativar
