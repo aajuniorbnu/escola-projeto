@@ -81,7 +81,12 @@ public class TratadorDeErros extends ResponseEntityExceptionHandler {
   @ExceptionHandler(DataIntegrityViolationException.class)
   public ProblemDetail integrity(DataIntegrityViolationException e) {
     var message = Objects.toString(e.getMostSpecificCause().getMessage(), "");
-    var codes = Map.of("uk_unidades_sigla", "RG0100", "uk_unidades_nome", "RG0103");
+    var codes =
+        Map.ofEntries(
+            Map.entry("uk_unidades_sigla", "RG0100"),
+            Map.entry("uk_unidades_nome", "RG0103"),
+            Map.entry("uk_alunos_cpf", "RG0300"),
+            Map.entry("uk_turmas_nome", "RG0402"));
     var code =
         codes.entrySet().stream()
             .filter(v -> message.contains(v.getKey()))
